@@ -1,13 +1,10 @@
 on: push
 
 jobs:
-  nandsim:
-    runs-on: ubuntu-20.04
-    name: Test build
+  alpine:
+    container:
+      image: alpine:3.14
+    name: Check /etc/issue
     steps:
-      - name: Install extra kernel modules
-        run: sudo apt-get update && sudo apt-get install linux-modules-extra
-      - name: Load nandsim kernel module
-        run: modprobe nandsim id_bytes=0xec,0xa1,0x00,0x15 parts=2,30,992
-      - name: List MTD devices
-        run: ls -la /dev/mtd*
+      - name: List contents of /etc/issue
+        run: /etc/issue
