@@ -25,5 +25,7 @@ jobs:
     runs-on: ubuntu-20.04
     name: Code style check
     steps:
-      - name: Check coding style using clang-format
-        run: clang-format --version
+      - name: Format source files (in-place) using clang-format
+        run: clang-format -i src/*
+      - name: Check if any files were modified
+        run: git diff --exit-code
