@@ -1,0 +1,11 @@
+runs:
+  steps:
+    - name: Install CMake (apk)
+      run: if command -v apk; then apk add cmake; fi
+    - name: Install CMake (apt-get)
+      run: if command -v apt-get; then apt-get -y update && apt-get -y install cmake; fi
+    - name: Install CMake (dnf)
+      run: if command -v dnf; then dnf -y install cmake; fi
+    - name: Install CMake (yum)
+      run: if command -v yum; then yum -y install cmake; fi
+

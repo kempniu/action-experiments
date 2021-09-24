@@ -13,10 +13,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
       - name: Install CMake
-        run: |
-          if command -v apk; then apk add cmake; fi
-          if command -v apt-get; then apt-get -y update && apt-get -y install cmake; fi
-          if command -v dnf; then dnf -y install cmake; fi
-          if command -v yum; then yum -y install cmake; fi
+        uses: ./.github/actions/install-cmake
       - name: Check CMake version
         run: cmake --version
