@@ -5,11 +5,11 @@ jobs:
   alpine:
     runs-on: ubuntu-20.04
     container: alpine:3.14
-    name: Check /etc/issue
+    name: Check Alpine 3.14
     steps:
-      - name: List contents of /etc/issue
-        run: cat /etc/issue
-      - name: Create a file as root
-        run: echo foo > /bar
-      - name: Read the same file as root, see if it exists
-        run: cat /bar
+      - name: Check current working directory
+        run: pwd
+      - name: List contents of current directory
+        run: ls -la
+      - name: Check /github directory
+        run: ls -la /github
