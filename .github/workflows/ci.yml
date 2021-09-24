@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-20.04
     name: Test build
     steps:
+      - name: Install extra kernel modules
+        run: sudo apt-get update && sudo apt-get install linux-modules-extra
       - name: Load nandsim kernel module
         run: modprobe nandsim id_bytes=0xec,0xa1,0x00,0x15 parts=2,30,992
       - name: List MTD devices
