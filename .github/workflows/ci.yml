@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        image: ["alpine:3.14", "centos:7"]
-    container: {{ matrix.image }}
-    name: Build test ({{ matrix.image }})
+        image: ['alpine:3.14', 'centos:7']
+    container: ${{ matrix.image }}
+    name: Build test (${{ matrix.image }})
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
