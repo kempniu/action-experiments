@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        image: ['alpine:3.14', 'centos:7']
+        image: ['alpine:3.14', 'centos:7', 'centos:8', 'ubuntu:20.04']
     container: ${{ matrix.image }}
     name: Build test (${{ matrix.image }})
     steps:
@@ -15,6 +15,8 @@ jobs:
       - name: Install CMake
         run: |
           if command -v apk; then apk add cmake; fi
-          if command -v yum; then yum install cmake; fi
+          if command -v apt-get; then apt-get -y update && apt-get -y install cmake; fi
+          if command -v dnf; then dnf -y install cmake; fi
+          if command -v yum; then yum -y install cmake; fi
       - name: Check CMake version
         run: cmake --version
