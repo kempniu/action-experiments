@@ -9,7 +9,7 @@ jobs:
         image: ['alpine:3.14', 'centos:7', 'centos:8', 'ubuntu:20.04']
         compiler: ['clang', 'gcc']
     container: ${{ matrix.image }}
-    name: Build test (${{ matrix.image }})
+    name: Build test (${{ matrix.image }}, ${{ matrix.compiler }})
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
