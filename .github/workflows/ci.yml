@@ -1,0 +1,11 @@
+on: push
+
+jobs:
+  nandsim:
+    runs-on: ubuntu-20.04
+    name: Test build
+    steps:
+      - name: Load nandsim kernel module
+        run: modprobe nandsim id_bytes=0xec,0xa1,0x00,0x15 parts=2,30,992
+      - name: List MTD devices
+        run: ls -la /dev/mtd*
