@@ -2,6 +2,7 @@ on: push
 
 jobs:
   alpine:
+    runs-on: ubuntu-20.04
     container:
       image: alpine:3.14
     name: Check /etc/issue
