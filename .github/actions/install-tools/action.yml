@@ -1,0 +1,21 @@
+runs:
+  using: "composite"
+  steps:
+    - name: Install Clang
+      run: |
+        if command -v apk; then apk add clang; fi
+        if command -v apt-get; then apt-get -y update && apt-get -y install clang; fi
+        if command -v dnf; then dnf -y install clang; fi
+        if command -v yum; then yum -y install clang; fi
+    - name: Install CMake
+      run: |
+        if command -v apk; then apk add cmake; fi
+        if command -v apt-get; then apt-get -y update && apt-get -y install cmake; fi
+        if command -v dnf; then dnf -y install cmake; fi
+        if command -v yum; then yum -y install cmake; fi
+    - name: Install GCC
+      run: |
+        if command -v apk; then apk add gcc; fi
+        if command -v apt-get; then apt-get -y update && apt-get -y install gcc; fi
+        if command -v dnf; then dnf -y install gcc; fi
+        if command -v yum; then yum -y install gcc; fi
