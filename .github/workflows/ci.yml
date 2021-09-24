@@ -16,8 +16,6 @@ jobs:
         uses: ./.github/actions/install-tools
       - name: Check clang version
         run: clang --version
-      - name: Check clang-format version
-        run: clang-format --version
       - name: Check cmake version
         run: cmake --version
       - name: Check gcc version
