@@ -12,7 +12,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: get-cmake
-        uses: lukka/get-cmake@latest
+      - name: Install CMake
+        run: |
+          which apk && apk add cmake
+          which yum && yum install cmake
       - name: Check CMake version
         run: cmake --version
