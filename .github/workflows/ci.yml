@@ -1,3 +1,4 @@
+name: Test branch
 on: push
 
 jobs:
@@ -8,4 +9,4 @@ jobs:
     name: Check /etc/issue
     steps:
       - name: List contents of /etc/issue
-        run: /etc/issue
+        run: cat /etc/issue
