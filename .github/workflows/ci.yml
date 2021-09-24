@@ -4,14 +4,13 @@ on: push
 jobs:
   alpine:
     runs-on: ubuntu-20.04
-    container: alpine:3.14
-    name: Check Alpine 3.14
+    strategy:
+      matrix:
+        image: [alpine:3.14, centos:7]
+    container: {{ matrix.image }}
+    name: Build test ({{ matrix.image }})
     steps:
-      - name: Check current working directory
-        run: pwd
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: List contents of current directory
-        run: ls -la
-      - name: Check /github directory
-        run: ls -laR /github
+      - name: Check CMake version
+        run: cmake --version
