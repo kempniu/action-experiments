@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+      - name: get-cmake
+        uses: lukka/get-cmake@latest
       - name: Check CMake version
         run: cmake --version
