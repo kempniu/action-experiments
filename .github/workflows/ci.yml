@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Install CMake
         run: |
-          which apk && apk add cmake
-          which yum && yum install cmake
+          if command -v apk; then apk add cmake; fi
+          if command -v yum; then yum install cmake; fi
       - name: Check CMake version
         run: cmake --version
