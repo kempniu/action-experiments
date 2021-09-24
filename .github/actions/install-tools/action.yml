@@ -22,3 +22,9 @@ runs:
         if command -v apt-get; then apt-get -y update && apt-get -y install gcc; fi
         if command -v dnf; then dnf -y install gcc; fi
         if command -v yum; then yum -y install gcc; fi
+    - name: List installed tool versions
+      shell: sh
+      run: |
+        clang --version
+        cmake --version
+        gcc --version
