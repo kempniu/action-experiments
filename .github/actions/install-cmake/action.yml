@@ -1,4 +1,5 @@
 runs:
+  using: "composite"
   steps:
     - name: Install CMake (apk)
       run: if command -v apk; then apk add cmake; fi
