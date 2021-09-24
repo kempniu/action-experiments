@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: List contents of /etc/issue
         run: cat /etc/issue
+      - name: Create a file as root
+        run: echo foo > /bar
+      - name: Read the same file as root, see if it exists
+        run: cat /bar
